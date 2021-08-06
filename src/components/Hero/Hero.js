@@ -9,12 +9,15 @@ const Wrapper = styled.section`
 `;
 
 const ProductImage = styled.img`
-  max-height: 48rem;
+  max-height: 42rem;
+
+  @media screen and (max-width: 992px) {
+    max-height: 38rem;
+  }
 `;
 
 const FlexRow = styled.div`
   height: 100%;
-  width: 100%;
   display: flex;
   flex-direction: flex-row;
   justify-content: space-between;
@@ -26,6 +29,7 @@ const Halves = styled.div`
   display: flex;
   &:nth-child(1) {
     flex: 0.4;
+    align-items: center;
   }
   &:nth-child(2) {
     flex: 0.6;
