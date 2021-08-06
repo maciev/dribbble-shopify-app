@@ -1,36 +1,70 @@
 import React from "react";
-import styled, { css } from "styled-components";
+import Kombucha from "../../assets/Kombucha.png";
+import styled from "styled-components";
 
 const Wrapper = styled.section`
   margin-left: 3%;
   margin-right: 3%;
   height: 48rem;
-  background-color: blue;
 `;
 
-//const Image = styled.image`
-//  size: 5rem;
-//  background-color: green;
-//`;
+const ProductImage = styled.img`
+  max-height: 48rem;
+`;
 
 const FlexRow = styled.div`
+  height: 100%;
   width: 100%;
   display: flex;
   flex-direction: flex-row;
-  flex: 50% 50%;
-
-  color: ${(props) => props.color};
+  justify-content: space-between;
 `;
 
-//const RightSide = styled.section``;
+const Halves = styled.div`
+  margin: 0;
+  justify-content: center;
+  display: flex;
+  &:nth-child(1) {
+    flex: 0.4;
+  }
+  &:nth-child(2) {
+    flex: 0.6;
+  }
+
+  &:nth-child(2) {
+    flex-direction: column;
+  }
+`;
+
+const ProductName = styled.h1`
+  font-size: 82px;
+  font-weight: lighter;
+  margin: 0;
+`;
+
+const BodyText = styled.h4`
+  font-weight: normal;
+  margin: 0;
+`;
 
 export const Hero = () => {
   return (
-    <Wrapper color="red">
-      hello
+    <Wrapper>
       <FlexRow>
-        <div>hello 1</div>
-        <div>hello 2</div>
+        <Halves>
+          <ProductImage src={Kombucha} />
+        </Halves>
+        <Halves>
+          <BodyText>Organic tea</BodyText>
+          <ProductName>Sparkling. Tea Kombucha</ProductName>
+          <BodyText>
+            Sparkling teas are essentially a mix of soda and tea, a cold,
+            carbonated version of the healthy classic-- and health experts love
+            them. "These beverages can provide the benefits of the tea in them,"
+            says Jessica Cording, R.D.
+          </BodyText>
+          <button>Click me</button>
+        </Halves>
       </FlexRow>
     </Wrapper>
   );

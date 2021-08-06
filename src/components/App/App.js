@@ -1,10 +1,11 @@
 import React from "react";
-import { Hero } from "components";
+import { Hero, Header } from "components";
 
 export const App = () => {
   return (
     <div>
-      <Hero color="red"></Hero>
+      <Header />
+      <Hero />
     </div>
   );
 };
