@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import arielogo from "../../assets/arielogo.png";
+import MenuIcon from "@material-ui/icons/Menu";
+import { useMediaQuery } from "@material-ui/core";
+import { render } from "@testing-library/react";
 
 const Wrapper = styled.section`
   display: flex;
@@ -50,22 +53,69 @@ const HeaderLink = styled(Link)`
   text-decoration: none;
   text-transform: lowercase;
 
-  &::nth-child(1) {
+  &:nth-child(1) {
     border-bottom: 5px solid blue;
   }
 `;
 
+const burgerMenu = styled.ul`
+  overflow-y: scroll;
+  list-style: none;
+  top: 0;
+  background: darkcyan;
+  left: 0;
+  bottom: 0;
+  height: 100vh;
+  width: 0;
+  overflow: hidden;
+  max-width: 290px;
+  z-index: 9;
+
+  & .showMenu {
+    color: red;
+    width: 100%;
+    background-color: red;
+  }
+`;
+
 export const Header = () => {
+  const handleToggle = () => {
+    setBurgerOpen((prev) => !prev);
+  };
+  // implement burger state inspiration from https://ibaslogic.com/how-to-add-hamburger-menu-in-react/
+  const [burgerOpen, setBurgerOpen] = useState(false);
+  //inspiration from levelup.gitconnected.com/using-breakpoints-and-media-queries-in-material-ui-47470d3c43d9
+  const showBurger = useMediaQuery("(max-width:720px)");
   return (
     <Wrapper>
       <Thirds>
         <Logo src={arielogo} />
       </Thirds>
       <Thirds>
-        <HeaderLink>Products </HeaderLink>
-        <HeaderLink>Story </HeaderLink>
-        <HeaderLink>Manufacturing </HeaderLink>
-        <HeaderLink>Packaging </HeaderLink>
+        {showBurger && (
+          <burgerMenu className={`burgerMenu ${burgerOpen ? "showMenu" : ""}`}>
+            {burgerOpen && (
+              <div>
+                <HeaderLink>Products </HeaderLink>
+                <HeaderLink>Story </HeaderLink>
+                <HeaderLink>Manufacturing </HeaderLink>
+                <HeaderLink>Packaging </HeaderLink>
+              </div>
+            )}
+
+            <button onClick={handleToggle}>
+              {burgerOpen ? "Close" : "Open"}
+            </button>
+          </burgerMenu>
+        )}
+        {!showBurger && (
+          <div>
+            <HeaderLink>Products </HeaderLink>
+            <HeaderLink>Story </HeaderLink>
+            <HeaderLink>Manufacturing </HeaderLink>
+            <HeaderLink>Packaging </HeaderLink>
+          </div>
+        )}
       </Thirds>
       <Thirds>third third</Thirds>
     </Wrapper>
