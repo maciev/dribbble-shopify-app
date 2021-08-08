@@ -9,10 +9,12 @@ const Wrapper = styled.section`
 `;
 
 const ProductImage = styled.img`
-  max-height: 42rem;
+  max-height: 100%;
 
-  @media screen and (max-width: 992px) {
-    max-height: 38rem;
+  @media screen and (max-width: 1420px) {
+    max-height: 65%;
+  @media screen and (max-width: 720px) {
+    max-height: 50%;
   }
 `;
 
@@ -28,27 +30,57 @@ const Halves = styled.div`
   justify-content: center;
   display: flex;
   &:nth-child(1) {
-    flex: 0.4;
+    flex: 0.5;
     align-items: center;
   }
   &:nth-child(2) {
-    flex: 0.6;
-  }
-
-  &:nth-child(2) {
+    flex: 0.5;
     flex-direction: column;
   }
 `;
 
 const ProductName = styled.h1`
   font-size: 82px;
-  font-weight: lighter;
+  font-weight: normal;
   margin: 0;
+
+  text-transform: uppercase;
+
+  &:nth-of-type(1) {
+    color: var(--purpleblue-color);
+  }
+
+  &:nth-of-type(2) {
+    color: var(--pink-color);
+  }
 `;
 
 const BodyText = styled.h4`
-  font-weight: normal;
   margin: 0;
+  color: var(--purpleblue-color);
+
+  &:nth-of-type(1) {
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: semi-bold;
+  }
+
+  &:nth-of-type(2) {
+    font-size: 12px;
+    font-weight: normal;
+  }
+`;
+
+const Button = styled.button`
+  background-color: var(--purpleblue-color);
+  color: white;
+  margin-top: 64px;
+  font-family: "Nunito", sans-serif;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  height: 3rem;
+  width: 10rem;
+  border: none;
 `;
 
 export const Hero = () => {
@@ -60,14 +92,15 @@ export const Hero = () => {
         </Halves>
         <Halves>
           <BodyText>Organic tea</BodyText>
-          <ProductName>Sparkling. Tea Kombucha</ProductName>
+          <ProductName>Sparkling. Tea</ProductName>
+          <ProductName>Kombucha</ProductName>
           <BodyText>
             Sparkling teas are essentially a mix of soda and tea, a cold,
             carbonated version of the healthy classic-- and health experts love
             them. "These beverages can provide the benefits of the tea in them,"
             says Jessica Cording, R.D.
           </BodyText>
-          <button>Click me</button>
+          <Button>Click me</Button>
         </Halves>
       </FlexRow>
     </Wrapper>

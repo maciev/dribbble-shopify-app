@@ -6,11 +6,13 @@ import arielogo from "../../assets/arielogo.png";
 const Wrapper = styled.section`
   display: flex;
   flex-direction: row;
+  color: var(--purpleblue-color);
   justify-content: flex-start;
   margin-left: 3%;
   margin-right: 3%;
   height: 48px;
-  background-color: red;
+  font-size: 14px;
+  font-weight: normal;
 `;
 
 const Thirds = styled.div`
@@ -46,6 +48,7 @@ const Logo = styled.img`
 const HeaderLink = styled(Link)`
   color: inherit;
   text-decoration: none;
+  text-transform: lowercase;
 
   &::nth-child(1) {
     border-bottom: 5px solid blue;
