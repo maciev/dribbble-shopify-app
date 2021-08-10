@@ -83,6 +83,12 @@ const Button = styled.button`
   border: none;
 `;
 
+const Price = styled.h2`
+  font-weight: 600;
+  font-size: 32px;
+  color: var(--purpleblue-color);
+`;
+
 export const Hero = () => {
   return (
     <Wrapper>
@@ -100,7 +106,8 @@ export const Hero = () => {
             them. "These beverages can provide the benefits of the tea in them,"
             says Jessica Cording, R.D.
           </BodyText>
-          <Button>Click me</Button>
+          <Price>$ 89.99</Price>
+          <Button>BUY NOW</Button>
         </Halves>
       </FlexRow>
     </Wrapper>

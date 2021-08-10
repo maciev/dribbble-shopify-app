@@ -1,7 +1,11 @@
 import React from "react";
+import styled from "styled-components";
 
-function IconBar() {
-  return <div></div>;
-}
+const Wrapper = styled.section`
+  background-color: var(--greywrapper-color);
+  height: 8rem;
+`;
 
-export default IconBar;
+export const IconBar = () => {
+  return <Wrapper>hello</Wrapper>;
+};

@@ -4,7 +4,9 @@ import styled from "styled-components";
 import arielogo from "../../assets/arielogo.png";
 import MenuIcon from "@material-ui/icons/Menu";
 import { useMediaQuery } from "@material-ui/core";
-import { render } from "@testing-library/react";
+import SearchOutlinedIcon from "@material-ui/icons/SearchOutlined";
+import ShoppingBasketOutlinedIcon from "@material-ui/icons/ShoppingBasketOutlined";
+import PersonOutlinedIcon from "@material-ui/icons/PersonOutlined";
 
 const Wrapper = styled.section`
   display: flex;
@@ -58,24 +60,16 @@ const HeaderLink = styled(Link)`
   }
 `;
 
-const burgerMenu = styled.ul`
-  overflow-y: scroll;
-  list-style: none;
-  top: 0;
-  background: darkcyan;
-  left: 0;
-  bottom: 0;
-  height: 100vh;
-  width: 0;
-  overflow: hidden;
-  max-width: 290px;
-  z-index: 9;
+const ulMenu = styled.ul`
+  background-color: red;
 
-  & .showMenu {
+  &:first-child {
     color: red;
-    width: 100%;
-    background-color: red;
   }
+`;
+
+const newDiv = styled.div`
+  color: red;
 `;
 
 export const Header = () => {
@@ -93,20 +87,20 @@ export const Header = () => {
       </Thirds>
       <Thirds>
         {showBurger && (
-          <burgerMenu className={`burgerMenu ${burgerOpen ? "showMenu" : ""}`}>
+          <ulMenu>
             {burgerOpen && (
-              <div>
+              <newDiv>
                 <HeaderLink>Products </HeaderLink>
                 <HeaderLink>Story </HeaderLink>
                 <HeaderLink>Manufacturing </HeaderLink>
                 <HeaderLink>Packaging </HeaderLink>
-              </div>
+              </newDiv>
             )}
 
-            <button onClick={handleToggle}>
+            <MenuIcon onClick={handleToggle}>
               {burgerOpen ? "Close" : "Open"}
-            </button>
-          </burgerMenu>
+            </MenuIcon>
+          </ulMenu>
         )}
         {!showBurger && (
           <div>
@@ -117,7 +111,11 @@ export const Header = () => {
           </div>
         )}
       </Thirds>
-      <Thirds>third third</Thirds>
+      <Thirds>
+        <SearchOutlinedIcon />
+        <ShoppingBasketOutlinedIcon />
+        <PersonOutlinedIcon />
+      </Thirds>
     </Wrapper>
   );
 };
