@@ -24,24 +24,35 @@ const Thirds = styled.div`
   height: 100%;
   display: flex;
   margin-top: 16px;
+
+
   &:nth-child(1) {
-    flex: 0.4;
+    flex: 0.5;
     font-weight: bold;
     margin-top: 0px;
+
+    @media screen and (max-width: 992px) {
+      flex: 0.5;
+
   }
   &:nth-child(2) {
-    flex: 0.3;
+    flex: 0.4;
     justify-content: space-between;
     @media screen and (max-width: 992px) {
       flex: 0.4;
     }
   }
   &:nth-child(3) {
-    flex: 0.3;
+    flex: 0.1;
     justify-content: center;
 
+    svg {
+      padding-left: 7px;
+      padding-right: 7px;
+    }
+
     @media screen and (max-width: 992px) {
-      flex: 0.2;
+      flex: 0.1;
     }
   }
 `;

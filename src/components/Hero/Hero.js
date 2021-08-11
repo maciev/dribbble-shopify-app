@@ -32,10 +32,18 @@ const Halves = styled.div`
   &:nth-child(1) {
     flex: 0.5;
     align-items: center;
+
+    @media screen and (max-width: 992px) {
+      flex: 0.3;
+    }
   }
   &:nth-child(2) {
     flex: 0.5;
     flex-direction: column;
+
+    @media screen and (max-width: 992px) {
+      flex: 0.7;
+    }
   }
 `;
 

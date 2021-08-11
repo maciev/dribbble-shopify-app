@@ -4,6 +4,11 @@ Pink: #EE563A
 GreyWrapper: #FAFAFA
 GreyText: #97979B
 
+To-do:
+Header List Icon once screen is less than 720px
+Fix header "products" alignment
+Fix Hero wrapper cut-off in small screen sizes
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
