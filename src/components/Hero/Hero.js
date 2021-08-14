@@ -12,9 +12,10 @@ const ProductImage = styled.img`
   max-height: 100%;
 
   @media screen and (max-width: 1420px) {
-    max-height: 65%;
+    max-height: 45%;
+  }
   @media screen and (max-width: 720px) {
-    max-height: 50%;
+    max-height: 25%;
   }
 `;
 

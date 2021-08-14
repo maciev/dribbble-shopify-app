@@ -27,19 +27,19 @@ const Thirds = styled.div`
 
 
   &:nth-child(1) {
-    flex: 0.5;
+    flex: 0.6;
     font-weight: bold;
     margin-top: 0px;
 
     @media screen and (max-width: 992px) {
-      flex: 0.5;
+      flex: 0.8;
 
   }
   &:nth-child(2) {
-    flex: 0.4;
+    flex: 0.3;
     justify-content: space-between;
     @media screen and (max-width: 992px) {
-      flex: 0.4;
+      flex: 0.1;
     }
   }
   &:nth-child(3) {
