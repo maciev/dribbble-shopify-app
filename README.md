@@ -5,8 +5,7 @@ GreyWrapper: #FAFAFA
 GreyText: #97979B
 
 To-do:
-Header List Icon once screen is less than 720px
-Fix header "products" alignment
+add padding to header icons
 Fix Hero wrapper cut-off in small screen sizes
 
 # Getting Started with Create React App

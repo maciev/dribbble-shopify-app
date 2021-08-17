@@ -83,7 +83,8 @@ const BodyText = styled.h4`
 const Button = styled.button`
   background-color: var(--purpleblue-color);
   color: white;
-  margin-top: 64px;
+  margin-top: 18px;
+  margin-bottom: 48px;
   font-family: "Nunito", sans-serif;
   letter-spacing: 0.5px;
   text-transform: uppercase;
@@ -96,6 +97,24 @@ const Price = styled.h2`
   font-weight: 600;
   font-size: 32px;
   color: var(--purpleblue-color);
+`;
+
+const DetailsRow = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  h3 {
+    color: var(--pink-color);
+  }
+`;
+const DetailsContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  h3 {
+    color: red;
+  }
 `;
 
 export const Hero = () => {
@@ -117,6 +136,20 @@ export const Hero = () => {
           </BodyText>
           <Price>$ 89.99</Price>
           <Button>BUY NOW</Button>
+          <DetailsRow>
+            <DetailsContainer>
+              <BodyText>Ingredients</BodyText>
+              <h3>100% Organic</h3>
+            </DetailsContainer>
+            <DetailsContainer>
+              <BodyText>Flavors</BodyText>
+              <h3>5 variations</h3>
+            </DetailsContainer>
+            <DetailsContainer>
+              <BodyText>Volume</BodyText>
+              <h3>465ml</h3>
+            </DetailsContainer>
+          </DetailsRow>
         </Halves>
       </FlexRow>
     </Wrapper>

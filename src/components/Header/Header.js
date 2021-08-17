@@ -12,7 +12,7 @@ const Wrapper = styled.section`
   display: flex;
   flex-direction: row;
   color: var(--purpleblue-color);
-  justify-content: flex-start;
+  justify-content: space-around;
   margin-left: 3%;
   margin-right: 3%;
   height: 48px;
@@ -27,29 +27,27 @@ const Thirds = styled.div`
 
 
   &:nth-child(1) {
-    flex: 0.6;
+    flex: 0.2;
     font-weight: bold;
     margin-top: 0px;
 
     @media screen and (max-width: 992px) {
-      flex: 0.8;
+      flex: 0.5;
 
   }
   &:nth-child(2) {
-    flex: 0.3;
+    flex: 0.7;
     justify-content: space-between;
     @media screen and (max-width: 992px) {
-      flex: 0.1;
+      flex: 0.4;
     }
   }
   &:nth-child(3) {
     flex: 0.1;
     justify-content: center;
 
-    svg {
-      padding-left: 7px;
-      padding-right: 7px;
-    }
+
+    
 
     @media screen and (max-width: 992px) {
       flex: 0.1;
@@ -65,9 +63,12 @@ const HeaderLink = styled(Link)`
   color: inherit;
   text-decoration: none;
   text-transform: lowercase;
+  padding-left: 5px;
+  padding-right: 5px;
 
   &:nth-child(1) {
-    border-bottom: 5px solid blue;
+    padding-bottom: 4px;
+    border-bottom: 2px solid var(--pink-color);
   }
 `;
 
