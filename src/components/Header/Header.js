@@ -13,8 +13,7 @@ const Wrapper = styled.section`
   flex-direction: row;
   color: var(--purpleblue-color);
   justify-content: space-around;
-  margin-left: 3%;
-  margin-right: 3%;
+  margin: auto;
   height: 48px;
   font-size: 14px;
   font-weight: normal;

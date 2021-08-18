@@ -9,13 +9,13 @@ const Wrapper = styled.section`
 `;
 
 const ProductImage = styled.img`
-  max-height: 100%;
+  max-height: 95%;
 
   @media screen and (max-width: 1420px) {
-    max-height: 45%;
+    max-height: 50%;
   }
   @media screen and (max-width: 720px) {
-    max-height: 25%;
+    max-height: 30%;
   }
 `;
 
@@ -41,9 +41,10 @@ const Halves = styled.div`
   &:nth-child(2) {
     flex: 0.5;
     flex-direction: column;
-
+    margin-top: 12rem;
     @media screen and (max-width: 992px) {
       flex: 0.7;
+      margin-top: 6rem;
     }
   }
 `;
@@ -71,7 +72,7 @@ const BodyText = styled.h4`
   &:nth-of-type(1) {
     text-transform: uppercase;
     font-size: 12px;
-    font-weight: semi-bold;
+    font-weight: bold;
   }
 
   &:nth-of-type(2) {
@@ -94,7 +95,9 @@ const Button = styled.button`
 `;
 
 const Price = styled.h2`
-  font-weight: 600;
+  margin-top: 18px;
+  margin-bottom: 18px;
+  font-weight: 800;
   font-size: 32px;
   color: var(--purpleblue-color);
 `;
@@ -102,19 +105,31 @@ const Price = styled.h2`
 const DetailsRow = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  align-items: flex-start;
+  justify-content: space-around;
   h3 {
     color: var(--pink-color);
+    font-weight: semibold;
   }
 `;
 const DetailsContainer = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: left;
 
   h3 {
     color: red;
+    margin-top: 8px;
   }
+`;
+
+const DividerBar = styled.hr`
+  display: block;
+  border: 0.1px solid var(--purpleblue-color);
+  overflow: hidden;
+  width: 40%;
+  margin-left: 0;
+  opacity: 0.5;
 `;
 
 export const Hero = () => {
@@ -135,6 +150,7 @@ export const Hero = () => {
             says Jessica Cording, R.D.
           </BodyText>
           <Price>$ 89.99</Price>
+          <DividerBar />
           <Button>BUY NOW</Button>
           <DetailsRow>
             <DetailsContainer>
