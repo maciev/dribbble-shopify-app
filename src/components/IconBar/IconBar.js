@@ -11,8 +11,8 @@ import {
 const Wrapper = styled.section`
   display: flex;
   flex-direction: row;
-  padding-left: 12rem;
-  padding-right: 12rem;
+  padding-left: 10%;
+  padding-right: 10%;
   align-items: center;
   justify-content: space-evenly;
   background-color: var(--greywrapper-color);

@@ -41,7 +41,7 @@ const Halves = styled.div`
   &:nth-child(2) {
     flex: 0.5;
     flex-direction: column;
-    margin-top: 12rem;
+    margin-top: 8rem;
     @media screen and (max-width: 992px) {
       flex: 0.7;
       margin-top: 6rem;
@@ -51,16 +51,17 @@ const Halves = styled.div`
 
 const ProductName = styled.h1`
   font-size: 82px;
-  font-weight: normal;
   margin: 0;
 
   text-transform: uppercase;
 
   &:nth-of-type(1) {
+    font-weight: lighter;
     color: var(--purpleblue-color);
   }
 
   &:nth-of-type(2) {
+    font-weight: normal;
     color: var(--pink-color);
   }
 `;
@@ -105,8 +106,8 @@ const Price = styled.h2`
 const DetailsRow = styled.div`
   display: flex;
   flex-direction: row;
-  align-items: flex-start;
-  justify-content: space-around;
+  width: 80%;
+  justify-content: space-between;
   h3 {
     color: var(--pink-color);
     font-weight: semibold;
