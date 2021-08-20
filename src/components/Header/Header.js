@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, Route } from "react-router-dom";
 import styled from "styled-components";
 import arielogo from "../../assets/arielogo.png";
 import MenuIcon from "@material-ui/icons/Menu";
@@ -114,12 +114,13 @@ export const Header = () => {
           </ulMenu>
         )}
         {!showBurger && (
-          <div>
-            <HeaderLink>Products </HeaderLink>
-            <HeaderLink>Story </HeaderLink>
-            <HeaderLink>Manufacturing </HeaderLink>
-            <HeaderLink>Packaging </HeaderLink>
-          </div>
+          <nav>
+            <HeaderLink to="/products">Products</HeaderLink>
+
+            <HeaderLink to="/story">Story </HeaderLink>
+            <HeaderLink to="/manufacturing">Manufacturing </HeaderLink>
+            <HeaderLink to="/packaging">Packaging </HeaderLink>
+          </nav>
         )}
       </Thirds>
       <Thirds>
