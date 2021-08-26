@@ -134,6 +134,9 @@ const DividerBar = styled.hr`
 `;
 
 export const Hero = () => {
+  const [cart, setCart] = React.useState([]);
+
+  console.log(cart);
   return (
     <Wrapper>
       <FlexRow>
@@ -152,7 +155,7 @@ export const Hero = () => {
           </BodyText>
           <Price>$ 89.99</Price>
           <DividerBar />
-          <Button>BUY NOW</Button>
+          <Button onClick={(e) => setCart("hello")}>BUY NOW</Button>
           <DetailsRow>
             <DetailsContainer>
               <BodyText>Ingredients</BodyText>

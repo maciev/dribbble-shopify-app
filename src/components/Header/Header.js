@@ -115,7 +115,7 @@ export const Header = () => {
         )}
         {!showBurger && (
           <nav>
-            <HeaderLink to="/products">Products</HeaderLink>
+            <HeaderLink to="/checkout">Products</HeaderLink>
 
             <HeaderLink to="/story">Story </HeaderLink>
             <HeaderLink to="/manufacturing">Manufacturing </HeaderLink>

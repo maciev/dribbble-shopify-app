@@ -1,21 +1,19 @@
 import React from "react";
-import { Hero, Header, IconBar } from "components";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { Hero, Header, IconBar, Products, Checkout } from "components";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
 export const App = () => {
   return (
-    <Switch>
-      <Route path="/products">
-        <div>hello</div>
-      </Route>
+    <Router>
+      <Route component={Checkout} exact path="/checkout"></Route>
 
       <Route exact path="/">
-        <div>
+        <>
           <Header />
           <Hero />
           <IconBar />
-        </div>
+        </>
       </Route>
-    </Switch>
+    </Router>
   );
 };
