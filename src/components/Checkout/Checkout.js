@@ -1,26 +1,35 @@
+import { Header } from "components/Header";
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 
 export const Checkout = () => {
-  const [state, setState] = useState([]);
+  const [state, setState] = useState([
+    { total: 1, product: "Orange Kombucha" },
+    { total: 2, product: "Kiwi Kombucha" },
+    { total: 3, product: "Strawberry Kombucha" },
+    { total: 4, product: "Grapefruit Kombucha" },
+    { total: 5, product: "Blackberry Kombucha" },
+    { total: 6, product: "Mango Kombucha" },
+    { total: 7, product: "Ginger Kombucha" },
+  ]);
 
-  useEffect(() => {
-    setState([
-      { total: 1, product: "product one" },
-      { total: 2, product: "product 2" },
-      { total: 3, product: "product 3" },
-    ]);
-  }, []);
+  //useEffect(() => {
+  //  setState([
+  //    { total: 1, product: "product 1" },
+  //    { total: 2, product: "product 2" },
+  //    { total: 3, product: "product 3" },
+  //  ]);
+  //}, []);
 
   const CheckoutContainer = styled.div`
     position: fixed;
     width: 24rem;
     height: 20rem;
-    background-color: whitesmoke;
-    top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
-    border-radius: 0.5rem;
+    background-color: #fafafa;
+    transform: translate(-50%);
+    border-radius: 0.25rem;
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
     text-align: center;
   `;
 
@@ -30,18 +39,21 @@ export const Checkout = () => {
 
   const CheckoutRows = styled.div`
     display: flex;
+    border-top: 1px solid #ccc;
     flex-direction: row;
     width: 100%;
-    margin-left: 10px;
-    margin-right: 10px;
     height: 2rem;
     align-items: center;
+
+    &:last-child {
+      border-bottom: 1px solid #ccc;
+    }
 
     & > div:nth-of-type(1) {
       font-weight: bold;
       font-size: 18px;
       margin-left: 10px;
-      margin-right: 24px;
+      margin-right: 48px;
     }
 
     & > div:nth-of-type(2) {
@@ -57,19 +69,21 @@ export const Checkout = () => {
 
   return (
     <div>
+      <Header />
       <CheckoutContainer>
         <CheckoutHeader>Checkout</CheckoutHeader>
-        {state.length >= 1
-          ? state.map(function (i) {
-              console.log("test");
-              return <CheckoutRows key={i}>Hello123</CheckoutRows>;
+        {state.length >= 1 && state.length <= 7
+          ? state.map(function (index, i) {
+              console.log(state);
+              return (
+                <CheckoutRows key={i}>
+                  <div>{state[i].total + "x"}</div>
+                  <div>{state[i].product}</div>
+                </CheckoutRows>
+              );
             })
-          : "hello"}
+          : "MAX ITEMS REACHED - Please remove items from cart"}
       </CheckoutContainer>
     </div>
   );
 };
-
-//{state.number === 1
-//  ? `You have 1 bottle of kombucha`
-//  : `You have ${state.number} bottles of kombucha`}

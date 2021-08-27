@@ -94,17 +94,19 @@ export const Header = () => {
   return (
     <Wrapper>
       <Thirds>
-        <Logo src={arielogo} />
+        <Link to="/">
+          <Logo src={arielogo} />
+        </Link>
       </Thirds>
       <Thirds>
         {showBurger && (
           <ulMenu>
             {burgerOpen && (
               <newDiv>
-                <HeaderLink>Products </HeaderLink>
-                <HeaderLink>Story </HeaderLink>
-                <HeaderLink>Manufacturing </HeaderLink>
-                <HeaderLink>Packaging </HeaderLink>
+                <HeaderLink to="/products">Products </HeaderLink>
+                <HeaderLink to="/story">Story </HeaderLink>
+                <HeaderLink to="/manufacturing">Manufacturing </HeaderLink>
+                <HeaderLink to="/packaging">Packaging </HeaderLink>
               </newDiv>
             )}
 
@@ -116,7 +118,6 @@ export const Header = () => {
         {!showBurger && (
           <nav>
             <HeaderLink to="/products">Products</HeaderLink>
-
             <HeaderLink to="/story">Story </HeaderLink>
             <HeaderLink to="/manufacturing">Manufacturing </HeaderLink>
             <HeaderLink to="/packaging">Packaging </HeaderLink>
@@ -124,13 +125,13 @@ export const Header = () => {
         )}
       </Thirds>
       <Thirds>
-        <Link>
+        <Link to="/checkout">
           <SearchOutlinedIcon />
         </Link>
         <Link to="/checkout">
           <ShoppingBasketOutlinedIcon />
         </Link>
-        <Link>
+        <Link to="/checkout">
           <PersonOutlinedIcon />
         </Link>
       </Thirds>
