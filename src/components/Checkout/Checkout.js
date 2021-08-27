@@ -5,7 +5,11 @@ export const Checkout = () => {
   const [state, setState] = useState([]);
 
   useEffect(() => {
-    setState({ total: 1 }, { product: "Mango Flavored Kombucha" });
+    setState([
+      { total: 1, product: "product one" },
+      { total: 2, product: "product 2" },
+      { total: 3, product: "product 3" },
+    ]);
   }, []);
 
   const CheckoutContainer = styled.div`
@@ -49,21 +53,18 @@ export const Checkout = () => {
     }
   `;
 
-  console.log(state.product);
+  console.log(state.length);
 
   return (
     <div>
       <CheckoutContainer>
         <CheckoutHeader>Checkout</CheckoutHeader>
-        {state.length >= 0 ? (
-          <CheckoutRows>{state.number}</CheckoutRows>
-        ) : (
-          "hello"
-        )}
-        {/*<CheckoutRows>
-          <div>1x</div>
-          <div>Original Aries Kombucha 18oz</div>
-        </CheckoutRows>*/}
+        {state.length >= 1
+          ? state.map(function (i) {
+              console.log("test");
+              return <CheckoutRows key={i}>Hello123</CheckoutRows>;
+            })
+          : "hello"}
       </CheckoutContainer>
     </div>
   );
