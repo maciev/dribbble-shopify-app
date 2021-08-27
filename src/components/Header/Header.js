@@ -115,7 +115,7 @@ export const Header = () => {
         )}
         {!showBurger && (
           <nav>
-            <HeaderLink to="/checkout">Products</HeaderLink>
+            <HeaderLink to="/products">Products</HeaderLink>
 
             <HeaderLink to="/story">Story </HeaderLink>
             <HeaderLink to="/manufacturing">Manufacturing </HeaderLink>
@@ -124,9 +124,15 @@ export const Header = () => {
         )}
       </Thirds>
       <Thirds>
-        <SearchOutlinedIcon />
-        <ShoppingBasketOutlinedIcon />
-        <PersonOutlinedIcon />
+        <Link>
+          <SearchOutlinedIcon />
+        </Link>
+        <Link to="/checkout">
+          <ShoppingBasketOutlinedIcon />
+        </Link>
+        <Link>
+          <PersonOutlinedIcon />
+        </Link>
       </Thirds>
     </Wrapper>
   );

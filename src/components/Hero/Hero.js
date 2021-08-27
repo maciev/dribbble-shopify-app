@@ -136,7 +136,6 @@ const DividerBar = styled.hr`
 export const Hero = () => {
   const [cart, setCart] = React.useState([]);
 
-  console.log(cart);
   return (
     <Wrapper>
       <FlexRow>
