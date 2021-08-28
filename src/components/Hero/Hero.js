@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useContext } from "react";
 import Kombucha from "../../assets/Kombucha.png";
 import styled from "styled-components";
+import { QuantityContext } from "context/QuantityContext";
 
 const Wrapper = styled.section`
   margin-left: 3%;
@@ -134,8 +135,9 @@ const DividerBar = styled.hr`
 `;
 
 export const Hero = () => {
-  const [cart, setCart] = React.useState([]);
+  const { quantity, setQuantity } = React.useContext(QuantityContext);
 
+  console.log(quantity);
   return (
     <Wrapper>
       <FlexRow>
@@ -154,7 +156,17 @@ export const Hero = () => {
           </BodyText>
           <Price>$ 89.99</Price>
           <DividerBar />
-          <Button onClick={(e) => setCart("hello")}>BUY NOW</Button>
+          <Button
+            onClick={(e) =>
+              setQuantity(
+                quantity === 0
+                  ? { quantity: 1 }
+                  : { quantity: quantity.quantity + 1 }
+              )
+            }
+          >
+            BUY NOW
+          </Button>
           <DetailsRow>
             <DetailsContainer>
               <BodyText>Ingredients</BodyText>

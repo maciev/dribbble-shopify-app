@@ -1,5 +1,5 @@
 import { Header } from "components/Header";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import styled from "styled-components";
 
 export const Checkout = () => {
@@ -13,14 +13,7 @@ export const Checkout = () => {
     { total: 7, product: "Ginger Kombucha" },
   ]);
 
-  //useEffect(() => {
-  //  setState([
-  //    { total: 1, product: "product 1" },
-  //    { total: 2, product: "product 2" },
-  //    { total: 3, product: "product 3" },
-  //  ]);
-  //}, []);
-
+  // update state from parent component
   const CheckoutContainer = styled.div`
     position: fixed;
     width: 24rem;
@@ -64,8 +57,6 @@ export const Checkout = () => {
       margin-right: 10px;
     }
   `;
-
-  console.log(state.length);
 
   return (
     <div>
