@@ -1,7 +1,7 @@
-import React, { useContext } from "react";
+import React from "react";
 import Kombucha from "../../assets/Kombucha.png";
 import styled from "styled-components";
-import { QuantityContext } from "context/QuantityContext";
+import { AppProvider, newContext } from "context/AppProvider";
 
 const Wrapper = styled.section`
   margin-left: 3%;
@@ -135,7 +135,7 @@ const DividerBar = styled.hr`
 `;
 
 export const Hero = () => {
-  const { quantity, setQuantity } = React.useContext(QuantityContext);
+  const { quantity, setQuantity } = React.useContext(newContext);
 
   console.log(quantity);
   return (

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, Route } from "react-router-dom";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import arielogo from "../../assets/arielogo.png";
 import MenuIcon from "@material-ui/icons/Menu";
@@ -7,6 +7,7 @@ import { useMediaQuery } from "@material-ui/core";
 import SearchOutlinedIcon from "@material-ui/icons/SearchOutlined";
 import ShoppingBasketOutlinedIcon from "@material-ui/icons/ShoppingBasketOutlined";
 import PersonOutlinedIcon from "@material-ui/icons/PersonOutlined";
+import { newContext } from "context/AppProvider";
 
 const Wrapper = styled.section`
   display: flex;
@@ -24,7 +25,6 @@ const Thirds = styled.div`
   display: flex;
   margin-top: 16px;
 
-
   &:nth-child(1) {
     flex: 0.2;
     font-weight: bold;
@@ -32,24 +32,21 @@ const Thirds = styled.div`
 
     @media screen and (max-width: 992px) {
       flex: 0.5;
-
-  }
-  &:nth-child(2) {
-    flex: 0.7;
-    justify-content: space-between;
-    @media screen and (max-width: 992px) {
-      flex: 0.4;
     }
-  }
-  &:nth-child(3) {
-    flex: 0.1;
-    justify-content: center;
-
-
-    
-
-    @media screen and (max-width: 992px) {
+    &:nth-child(2) {
+      flex: 0.7;
+      justify-content: space-between;
+      @media screen and (max-width: 992px) {
+        flex: 0.4;
+      }
+    }
+    &:nth-child(3) {
       flex: 0.1;
+      justify-content: center;
+
+      @media screen and (max-width: 992px) {
+        flex: 0.1;
+      }
     }
   }
 `;
@@ -71,16 +68,25 @@ const HeaderLink = styled(Link)`
   }
 `;
 
-const ulMenu = styled.ul`
-  background-color: red;
+/*const QuantityOverlaySpan = styled.span`
+  display: inline-block;
+  position: relative;
+  background-color: #eee;
+  width: 48px;
+  height: 42px;
+  text-align: center;
+`;*/
 
-  &:first-child {
-    color: red;
-  }
-`;
+const QuantityOverlay = styled.span`
+  font-size: 14px;
+  font-weight: bold;
 
-const newDiv = styled.div`
-  color: red;
+  text-decoration: none;
+  color: black;
+  z-index: 2;
+  border-radius: 6px;
+  text-align: center;
+  position: relative;
 `;
 
 export const Header = () => {
@@ -89,6 +95,7 @@ export const Header = () => {
   };
   // implement burger state inspiration from https://ibaslogic.com/how-to-add-hamburger-menu-in-react/
   const [burgerOpen, setBurgerOpen] = useState(false);
+  const { quantity, setQuantity } = React.useContext(newContext);
   //inspiration from levelup.gitconnected.com/using-breakpoints-and-media-queries-in-material-ui-47470d3c43d9
   const showBurger = useMediaQuery("(max-width:720px)");
   return (
@@ -128,8 +135,9 @@ export const Header = () => {
         <Link to="/checkout">
           <SearchOutlinedIcon />
         </Link>
-        <Link to="/checkout">
+        <Link to="/checkout" style={{ textDecoration: "none" }}>
           <ShoppingBasketOutlinedIcon />
+          <QuantityOverlay>{quantity.quantity}</QuantityOverlay>
         </Link>
         <Link to="/checkout">
           <PersonOutlinedIcon />

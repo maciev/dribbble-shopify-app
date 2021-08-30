@@ -1,16 +1,11 @@
 import { Header } from "components/Header";
+import { AppProvider, newContext } from "context/AppProvider";
 import React, { useContext, useState } from "react";
 import styled from "styled-components";
 
 export const Checkout = () => {
   const [state, setState] = useState([
     { total: 1, product: "Orange Kombucha" },
-    { total: 2, product: "Kiwi Kombucha" },
-    { total: 3, product: "Strawberry Kombucha" },
-    { total: 4, product: "Grapefruit Kombucha" },
-    { total: 5, product: "Blackberry Kombucha" },
-    { total: 6, product: "Mango Kombucha" },
-    { total: 7, product: "Ginger Kombucha" },
   ]);
 
   // update state from parent component
@@ -58,6 +53,8 @@ export const Checkout = () => {
     }
   `;
 
+  const { quantity, setQuantity } = React.useContext(newContext);
+  console.log(quantity);
   return (
     <div>
       <Header />
@@ -65,10 +62,9 @@ export const Checkout = () => {
         <CheckoutHeader>Checkout</CheckoutHeader>
         {state.length >= 1 && state.length <= 7
           ? state.map(function (index, i) {
-              console.log(state);
               return (
                 <CheckoutRows key={i}>
-                  <div>{state[i].total + "x"}</div>
+                  <div>{quantity.quantity + "x"}</div>
                   <div>{state[i].product}</div>
                 </CheckoutRows>
               );

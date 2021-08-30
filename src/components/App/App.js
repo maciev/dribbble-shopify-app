@@ -1,11 +1,11 @@
 import React from "react";
 import { Hero, Header, IconBar, Checkout } from "components";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import { QuantityProvider } from "context/QuantityContext";
+import { AppProvider } from "context/AppProvider";
 
 export const App = () => {
   return (
-    <QuantityProvider>
+    <AppProvider>
       <Router>
         <Route component={Checkout} exact path="/checkout" />
         {/*<Checkout />
@@ -18,6 +18,6 @@ export const App = () => {
           </>
         </Route>
       </Router>
-    </QuantityProvider>
+    </AppProvider>
   );
 };
