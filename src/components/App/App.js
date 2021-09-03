@@ -4,24 +4,29 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import { AppProvider } from "context/AppProvider";
 import "reflect-metadata";
 
-import { createConnection } from "typeorm";
+import { createConnection, getConnectionManager } from "typeorm";
 import { User } from "../../db/typeorm/entities/userEntity";
 import { Product } from "../../db/typeorm/entities/productEntity";
 
-createConnection({
-  type: "mysql",
+const connectionManager = getConnectionManager();
+const connection = connectionManager.create({
+  type: "postgres",
   host: "localhost",
-  port: 3306,
-  username: "root",
-  password: "admin",
-  database: "test",
+  port: 5432,
+  username: "postgres",
+  password: "chinesepeople3",
+  database: "dribbble",
   entities: [Product, User],
   synchronize: true,
   logging: false,
-})
-  .then((connection) => {
-    // here you can start to work with your entities
-  })
+});
+
+await connection
+  .connect()
+
+  //.then((connection) => {
+  //   here you can start to work with your entities
+  //})
   .catch((error) => console.log(error));
 
 export const App = () => {
