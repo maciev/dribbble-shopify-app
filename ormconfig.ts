@@ -1,0 +1,18 @@
+module.exports = {
+  type: "postgres",
+  host: "localhost",
+  port: 5432,
+  username: "postgres",
+  password: "chinesepeople3",
+  database: "dribbble",
+  synchronize: false,
+  logging: false,
+  entities: ["typeorm/entities/*.ts"],
+  migrations: ["build/typeorm/migration/*.js"],
+  cli: {
+    entitiesDir: "typeorm/entities",
+    migrationsDir: "typeorm/migration",
+  },
+};
+
+export {};
