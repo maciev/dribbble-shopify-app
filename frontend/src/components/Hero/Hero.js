@@ -1,7 +1,7 @@
 import React from "react";
 import Kombucha from "../../assets/Kombucha.png";
 import styled from "styled-components";
-import { AppProvider, newContext } from "context/AppProvider";
+import { newContext } from "context/AppProvider";
 
 const Wrapper = styled.section`
   margin-left: 3%;

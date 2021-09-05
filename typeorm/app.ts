@@ -1,6 +1,5 @@
 import { createConnection } from "typeorm";
 import { User } from "./entities/userEntity";
-import express from "express";
 
 //createConnection()
 //  .then(async (connection) => {

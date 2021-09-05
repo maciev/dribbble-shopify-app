@@ -1,6 +1,6 @@
 import { Header } from "components/Header";
-import { AppProvider, newContext } from "context/AppProvider";
-import React, { useContext, useState } from "react";
+import { newContext } from "context/AppProvider";
+import React, { useState } from "react";
 import styled from "styled-components";
 
 export const Checkout = () => {
