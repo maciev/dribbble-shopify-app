@@ -7,3 +7,5 @@ Problems to fix:
 
 Front-end:
 Can't resolve components
+
+guide https://www.freecodecamp.org/news/fullstack-react-blog-app-with-express-and-psql/

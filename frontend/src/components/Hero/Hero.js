@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Kombucha from "../../assets/Kombucha.png";
 import styled from "styled-components";
 import { newContext } from "context/AppProvider";
+import axios from "axios";
 
 const Wrapper = styled.section`
   margin-left: 3%;
@@ -136,8 +137,13 @@ const DividerBar = styled.hr`
 
 export const Hero = () => {
   const { quantity, setQuantity } = React.useContext(newContext);
+  const [state, setState] = useState("");
+  useEffect(() => {
+    axios.get("/api/hello").then((res) => setState(res.data));
+  });
 
-  console.log(quantity);
+  console.log(state);
+  //console.log(quantity);
   return (
     <Wrapper>
       <FlexRow>
@@ -145,7 +151,7 @@ export const Hero = () => {
           <ProductImage src={Kombucha} />
         </Halves>
         <Halves>
-          <BodyText>Organic tea</BodyText>
+          <BodyText>Organic tea and {state}</BodyText>
           <ProductName>Sparkling. Tea</ProductName>
           <ProductName>Kombucha</ProductName>
           <BodyText>

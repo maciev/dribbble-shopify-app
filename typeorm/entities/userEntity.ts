@@ -18,6 +18,9 @@ export class User {
   @Column("text", { array: true })
   shoppingCart: string[];
 
+  @Column()
+  quantity: number;
+
   @OneToMany(() => Product, (product) => product.user)
   product: Product;
 }
