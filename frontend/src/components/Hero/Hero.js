@@ -137,13 +137,12 @@ const DividerBar = styled.hr`
 
 export const Hero = () => {
   const { quantity, setQuantity } = React.useContext(newContext);
-  const [state, setState] = useState("");
-  useEffect(() => {
-    axios.get("/api/hello").then((res) => setState(res.data));
+
+  axios.put("http://localhost:5000/quantity", {
+    quantity: "hello",
   });
 
-  console.log(state);
-  //console.log(quantity);
+  console.log(quantity);
   return (
     <Wrapper>
       <FlexRow>
@@ -151,7 +150,7 @@ export const Hero = () => {
           <ProductImage src={Kombucha} />
         </Halves>
         <Halves>
-          <BodyText>Organic tea and {state}</BodyText>
+          <BodyText>Organic tea</BodyText>
           <ProductName>Sparkling. Tea</ProductName>
           <ProductName>Kombucha</ProductName>
           <BodyText>
@@ -167,7 +166,9 @@ export const Hero = () => {
               setQuantity(
                 quantity === 0
                   ? { quantity: 1 }
-                  : { quantity: quantity.quantity + 1 }
+                  : {
+                      quantity: quantity.quantity + 1,
+                    }
               )
             }
           >
