@@ -138,9 +138,15 @@ const DividerBar = styled.hr`
 export const Hero = () => {
   const { quantity, setQuantity } = React.useContext(newContext);
 
-  axios.put("http://localhost:5000/quantity", {
-    quantity: "hello",
-  });
+  const dt = {
+    firstName: "Andrew",
+    lastName: "Voly",
+    isActive: true,
+    shoppingCart: ["yes"],
+    quantity: 2,
+  };
+
+  axios.post("http://localhost:5000/home", dt);
 
   console.log(quantity);
   return (

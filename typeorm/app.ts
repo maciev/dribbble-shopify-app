@@ -1,34 +1,55 @@
 import { createConnection } from "typeorm";
-import express from "express";
+import express, { Request, Response } from "express";
+//import { User } from "./entities/userEntity";
 import cors from "cors";
 
 createConnection().then(async (_connection) => {
   const app = express();
+
   app.use(express.json());
-  //const router = express.Router();
-  //app.use("/", router);
-
+  app.use(express.urlencoded({ extended: false }));
   app.use(cors());
+  //create
+  app.post("/home", async (req: Request, res: Response) => {
+    console.log(req.body); //undefined
+    res.end("Success");
+  });
 
-  //app.get("/create", async (req, res) => {
+  //  try {
+  //    const user = User.create({
+  //      firstName,
+  //      lastName,
+  //      isActive,
+  //      shoppingCart,
+  //      quantity,
+  //    });
+
+  //    await user.save();
+  //    return res.json(user);
+  //  } catch (error) {
+  //    return res.json(error);
+  //  }
+  //});
+
+  //read
+  //update
+  //delete
+  //find
+  //app.put("/quantity", (request, response) => {
+  //  console.log(request.body);
+  //});
+
+  //const updateUserQuantity = async (req: Request, res: Response) => {
   //  const user = new User();
   //  user.firstName = "Billy Bob";
   //  user.lastName = "Joel";
   //  user.isActive = true;
+
   //  user.shoppingCart = ["one kombucha", "hello"];
+  //  user.quantity = req.body.quantity;
 
-  //  await connection.manager.save(user);
-  //  res.send(user);
-  //});
-
-  //app.get("/read", async (req, res) => {
-  //  const users = await connection.manager.find(User);
-  //  res.send(users);
-  //});
-
-  app.put("/quantity", (request, response) => {
-    console.log(request.body);
-  });
+  //  await user.save();
+  //};
 
   app.listen(5000, () => console.log("App is listening on port 5000!"));
 });
